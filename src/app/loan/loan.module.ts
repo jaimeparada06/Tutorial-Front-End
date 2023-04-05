@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
-import { MatOptionModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatOptionModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
@@ -46,8 +46,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
           provide: MAT_DIALOG_DATA,
           useValue: {},
       },
-      // { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-      // { provide: MAT_DATE_FORMATS, useValue: DateFormats }
+      {
+        provide: MAT_DATE_LOCALE, useValue: 'en-GB'
+      }
+      
   ]
   })
 export class LoanModule { }

@@ -26,7 +26,6 @@
         <mat-form-field>
             <mat-label>Fecha de prestamo</mat-label>
             <input matInput [matDatepicker]="picker" [(ngModel)]="loan.borrowedDate" name="borrowedDate" required (ngModelChange)="validaciones()" required>
-            <mat-hint>Month-Day-Year</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle >
             <mat-datepicker #picker></mat-datepicker>
             <mat-error>La fecha de prestamo no puede estar vacía</mat-error>
@@ -35,7 +34,6 @@
         <mat-form-field>
             <mat-label>Fecha de devolucion</mat-label>
             <input matInput [matDatepicker]="picker2" [(ngModel)]="loan.returnDate" name="returnDate" required (ngModelChange)="validaciones()" required>
-            <mat-hint>Month-Day-Year</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle >
             <mat-datepicker #picker2></mat-datepicker>
             <mat-error>La fecha de devolucion no puede estar vacía</mat-error>
@@ -49,6 +47,6 @@
         <button mat-flat-button color="primary" (click)="onSave()">Guardar</button>
         <mat-error *ngIf="returnPreviousBorrowed">La fecha fin NO puede ser anterior a la fecha de inicio</mat-error>
         <mat-error *ngIf="moreThan14Days">El prestamo máximo es de 14 días</mat-error>
-        <mat-error *ngIf="validations">{{error}}</mat-error>
+        <!-- <mat-error *ngIf="validations">{{errorValidations}}</mat-error> -->
     </div>
 </div>

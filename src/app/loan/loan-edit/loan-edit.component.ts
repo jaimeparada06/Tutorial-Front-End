@@ -7,6 +7,10 @@ import { Game } from '../../game/model/Game';
 import { ClientService } from '../../client/client.service';
 import { Client } from '../../client/model/Client';
 
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmationComponent } from '../../core/dialog-confirmation/dialog-confirmation.component';
+import { DialogOkComponent } from 'src/app/core/dialog-ok/dialog-ok.component';
+
 @Component({
   selector: 'app-loan-edit',
   templateUrl: './loan-edit.component.html',
@@ -20,14 +24,16 @@ export class LoanEditComponent implements OnInit{
   returnPreviousBorrowed: boolean;
   moreThan14Days: boolean;
   validations: boolean;
-  errorValidations: String;
+//   errorValidations: String;
 
     constructor(
         public dialogRef: MatDialogRef<LoanEditComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         private loanService: LoanService,
         private gameService: GameService,
-        private clientService: ClientService
+        private clientService: ClientService,
+        public dialog: MatDialog,
+
     ) { }
 
     ngOnInit(): void {
@@ -90,7 +96,10 @@ export class LoanEditComponent implements OnInit{
                   },
                   error: (err) => {
                     this.validations =true;
-                    this.errorValidations = err.error.message
+                    const dialogRef = this.dialog.open(DialogOkComponent, {
+                        data: { title: "Error en la creación", description: err.error.message  }
+                    });
+                    // this.errorValidations = err.error.message
                   }
         }); 
     }

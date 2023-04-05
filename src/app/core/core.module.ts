@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
+import { DialogOkComponent } from './dialog-ok/dialog-ok.component';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -16,7 +17,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     HeaderComponent,
-    DialogConfirmationComponent
+    DialogConfirmationComponent,
+    DialogOkComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +28,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    MatNativeDateModule,
+    ],
   providers: [
     {
       provide: MAT_DIALOG_DATA,
